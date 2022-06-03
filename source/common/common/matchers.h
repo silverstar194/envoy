@@ -144,6 +144,10 @@ public:
       return matcher_.ignore_case()
                  ? absl::StrContains(absl::AsciiStrToLower(value), lowercase_contains_match_)
                  : absl::StrContains(value, matcher_.contains());
+    case StringMatcherType::MatchPatternCase::kPathTemplateMatch:
+      return matcher_.ignore_case()
+                 ? absl::StrContains(absl::AsciiStrToLower(value), lowercase_contains_match_)
+                 : absl::StrContains(value, matcher_.contains());
     case StringMatcherType::MatchPatternCase::kSafeRegex:
       return regex_->match(value);
     case StringMatcherType::MatchPatternCase::MATCH_PATTERN_NOT_SET:

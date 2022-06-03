@@ -111,21 +111,6 @@ PathMatcherConstSharedPtr PathMatcher::createPrefix(const std::string& prefix, b
   return std::make_shared<const PathMatcher>(matcher);
 }
 
-PathMatcherConstSharedPtr PathMatcher::createPattern(const std::string& pattern, bool ignore_case) {
-  envoy::type::matcher::v3::PatternMatcher matcher;
-  matcher.set_pattern(pattern);
-  matcher.set_ignore_case(ignore_case);
-  return std::make_shared<const PathMatcher>(matcher);
-}
-
-PathMatcherConstSharedPtr PathMatcher::createPattern(const std::string& pattern, bool ignore_case) {
-  // TODO(silverstar194): implement pattern specific matcher
-  envoy::type::matcher::v3::StringMatcher matcher;
-  matcher.set_prefix(pattern);
-  matcher.set_ignore_case(ignore_case);
-  return std::make_shared<const PathMatcher>(matcher);
-}
-
 PathMatcherConstSharedPtr
 PathMatcher::createSafeRegex(const envoy::type::matcher::v3::RegexMatcher& regex_matcher) {
   envoy::type::matcher::v3::StringMatcher matcher;
@@ -139,9 +124,6 @@ bool MetadataMatcher::match(const envoy::config::core::v3::Metadata& metadata) c
 }
 
 bool PathMatcher::match(const absl::string_view path) const {
-  if (pattern_based_match_) {
-    return pattern_matcher_.match(Http::PathUtil::removeQueryAndFragment(path));
-  }
   return matcher_.match(Http::PathUtil::removeQueryAndFragment(path));
 }
 
