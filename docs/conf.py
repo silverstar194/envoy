@@ -13,13 +13,11 @@
 # serve to show the default.
 
 import os
-import sys
-from datetime import datetime
-
-import yaml
-
-from sphinx.directives.code import CodeBlock
 import sphinx_rtd_theme
+import sys
+import yaml
+from datetime import datetime
+from sphinx.directives.code import CodeBlock
 
 
 class SphinxConfigError(Exception):
@@ -91,9 +89,10 @@ def _config(key):
 sys.path.append(os.path.abspath("./_ext"))
 
 extensions = [
-    'sphinxcontrib.httpdomain', 'sphinx.ext.extlinks', 'sphinx.ext.ifconfig',
-    'sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_copybutton', 'validating_code_block',
-    'sphinxext.rediraffe', 'powershell_lexer'
+    'envoy.docs.sphinx_runner.ext.httpdomain', 'sphinx.ext.extlinks', 'sphinx.ext.ifconfig',
+    'sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_copybutton',
+    'envoy.docs.sphinx_runner.ext.validating_code_block', 'sphinxext.rediraffe',
+    'envoy.docs.sphinx_runner.ext.powershell_lexer'
 ]
 
 release_level = _config('release_level')
