@@ -19,7 +19,6 @@ import yaml
 from datetime import datetime
 from sphinx.directives.code import CodeBlock
 
-
 class SphinxConfigError(Exception):
     pass
 
