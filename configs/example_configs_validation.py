@@ -1,8 +1,11 @@
 import argparse
+
 import pathlib
 import sys
-from envoy.base.utils import ProtobufValidator
+
 from google.protobuf.json_format import ParseError
+
+from envoy.base.utils import ProtobufValidator
 
 # TODO (phlax): move this to `envoy.code.check`
 
