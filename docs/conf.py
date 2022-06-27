@@ -13,11 +13,14 @@
 # serve to show the default.
 
 import os
-import sphinx_rtd_theme
 import sys
-import yaml
 from datetime import datetime
+
+import yaml
+
 from sphinx.directives.code import CodeBlock
+import sphinx_rtd_theme
+
 
 class SphinxConfigError(Exception):
     pass
