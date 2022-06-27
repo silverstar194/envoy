@@ -1088,9 +1088,6 @@ message RouteAction {
   //   ``/aaa/yyy/bbb``.
   type.matcher.v3.RegexMatchAndSubstitute regex_rewrite = 32;
 
-<<<<<<< HEAD
-  string pattern_rewrite = 41 [(validate.rules).string = {min_len: 1}];
-=======
   // Indicates that during forwarding, portions of the path that match the
   // pattern should be rewritten, even allowing the substitution of variables
   // from the match pattern into the new path as specified by the rewrite template.
@@ -1133,7 +1130,6 @@ message RouteAction {
   // [#not-implemented-hide:]
   string path_template_rewrite = 41
       [(validate.rules).string = {min_len: 1 max_len: 256 ignore_empty: true}];
->>>>>>> main
 
   oneof host_rewrite_specifier {
     // Indicates that during forwarding, the host header will be swapped with
