@@ -4,7 +4,6 @@ import sys
 from envoy.base.utils import ProtobufValidator
 from google.protobuf.json_format import ParseError
 
-
 # TODO (phlax): move this to `envoy.code.check`
 
 
