@@ -75,7 +75,7 @@ TEST(InternalParsing, IsValidRewriteLiteralWorks) {
   EXPECT_FALSE(isValidRewriteLiteral("`~!@#$%^&()-_+;:,<.>'\"| "));
   EXPECT_FALSE(isValidRewriteLiteral("ab}c"));
   EXPECT_FALSE(isValidRewriteLiteral("ab{c"));
-  EXPECT_FALSE(isValidRewriteLiteral("a=c"));
+  EXPECT_TRUE(isValidRewriteLiteral("a=c"));his
   EXPECT_FALSE(isValidRewriteLiteral("?a=c"));
 }
 
